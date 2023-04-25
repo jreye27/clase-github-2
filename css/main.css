@@ -1,0 +1,203 @@
+/* reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del proyecto */
+
+body{
+    /* background-color: #eceef3; color en código hexagecimal de 6 digitos */
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos del header */
+
+header{
+    display: none; /* oculta todo lo definido en el header del archivo html */
+}
+
+/* Estilos de main */
+
+main{
+    /* font-size: 2rem; */
+    display: flex; /* flex por defecto funciona en filas */
+    flex-direction: column; /* Hacemos que los elementos queden uno debajo del otro */
+    align-items: center;
+    text-align: center; /* todos los elementos que están dentro de main en el html, heredan esta propiedad */
+    padding: 1.5rem; /* defino el espaciado dentro de main */
+}
+
+main h2{
+    margin: 1rem;
+}
+
+main h2 span{
+    display: block; /* permite que el span definido en main h2, se comporte como un bloque y así hacer que lo definido allí se presente en una sol línea */
+}
+
+main .boton{
+    background-color: #51b0df;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.7rem 1.2rem 0.7rem 1.2rem; /* en la parte de arriba y abajo del boton queda con menos margen interno */
+    color: whitesmoke; /* color del titulo de boton */
+    box-shadow: 1px 2px black;
+    /* box-shadow: 3px 3px 10px black; */
+}
+
+main img{
+    width: 60%; /* reduzco el tamaño de la imagen a un 70% */
+}
+
+/* Estilos de section */
+
+section{
+    display: none;
+}
+
+/* Estilos de footer */
+
+footer h4{
+    text-align: center;
+}
+
+/* Pantallas de tablet */
+
+@media screen and (min-width: 600px) {
+    
+    /* Estilos de header pare este tipo de pantalla */
+    header{
+        display: block; /* mostramos nuevamente el header con display: block porque header es de bloque, si fuera de líneas se haria con display: inline */
+        display: flex; /* coloca los elementos del header uno al lado del otro */
+        justify-content: space-between; /* centra el header sin espacios a los lados */
+        margin-left: 1rem; /*deja un espacio de 1rem a la izquierda */
+        margin-right: 1rem; /*deja un espacio de 1rem a la derecha */
+        padding: 0.7rem;
+        align-items: center; /* alinea los items verticalmente en el centro */
+      }
+
+    header nav ul{
+        display: flex; /* coloca los elementos de ul (del menú), uno al lado del otro */
+        list-style: none; /* elimino las viñetas que están en las opciones del menú */
+        gap: 1rem; /* separa los elementos del menú a una distancia de 1rem */
+
+    }
+
+    header nav ul li{
+        font-weight: bold; /* colco el tipo de letra bold a los items del menú */
+    }
+
+    /* Estilos de section */
+
+    section{
+        display: block;
+        display: flex; 
+        background-color:#BEE0F1;
+        padding: 1rem;
+        gap: 0.7rem;
+
+    }
+
+    section div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        animation-name: animacion-div;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+
+    }
+
+    @keyframes animacion-div {
+        0%{
+            transform: scale(0.5);
+            
+        }
+        50%{
+            transform: scale(0.8);
+            
+
+        }
+        100%{
+            transform: scale(1.2);
+            
+        }
+        
+    }
+
+    section div img{
+        width: 20%;
+    }
+   
+}
+
+/* Estilos de pantalla de escritorio */
+
+@media screen and (min-width: 1024px) {
+    /* Estilos del menú  */
+
+    header nav ul li{
+        transition: 3s;
+    }
+
+    header nav ul li:hover{
+        /* background-color: red;  */
+        transform: scale(1.2);
+        transition: 3s;
+        box-shadow: 1px 1px 2px black;
+  
+    }
+
+    /* Estilos de main */
+    
+    main{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "p      img"
+            "h2     img"
+            "p-dos  img"
+            "boton  img";
+        justify-content: center;
+        justify-items: center;
+    }
+    
+    main p{
+        grid-area: p;
+    }
+    main img{
+        grid-area: img;
+    }
+
+    main img{
+        filter: drop-shadow(10px 20px 30px);
+    }
+
+    main h2{
+        grid-area: h2;
+    }
+
+    main .p-dos{
+        grid-area: p-dos;
+        width: 70%;
+    }
+
+    main .boton{
+        grid-area: boton;
+    }
+
+    /* Estilos de footer */
+
+    footer{
+        /* margin-top: 0.5rem; */
+        padding: 0.5rem;
+
+    }
+}
+
